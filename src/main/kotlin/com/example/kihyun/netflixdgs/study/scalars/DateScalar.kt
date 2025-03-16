@@ -23,7 +23,7 @@ import java.util.*
  * -----------------------------------------------------------
  * 2025-03-16        joy58       최초 생성
  */
-@DgsScalar(name = "Date")
+//@DgsScalar(name = "Date")
 class DateScalar: Coercing<LocalDate, String> {
 
     /** 서버에서 클라이언트로 데이터를 보낼 때 타입을 변환시키는 메서드 **/
