@@ -8,9 +8,15 @@ plugins {
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
+// Kotlin 사용시, 프록시 설정을 위해 설정,
+// allOpen 미적용시, LAZY 로딩 설정을 해놓은 연관관계에 대해서 정상적으로 작동하지 않을 수 있다.
+allOpen {
+	annotation("jakarta.persistence.Entity")
+}
+
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+		this.languageVersion
 	}
 }
 
@@ -18,7 +24,7 @@ repositories {
 	mavenCentral()
 }
 
-extra["netflixDgsVersion"] = "10.0.4"
+extra["netflixDgsVersion"] = "10.0.1"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
