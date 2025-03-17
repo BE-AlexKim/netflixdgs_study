@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: netflix_dgs
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/netflix_dgs
+    username: root
+    password: rlgus585
+    hikari:
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1
+      idle-timeout: 30000
+      minimum-idle: 2
+      connection-timeout: 10000
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+    defer-datasource-initialization: true
+    show-sql: false
+    properties:
+      hibernate:
+        show_sql: true #SQL ?? ??
+        format_sql: true #SQL ?? ??
+        use_sql_comments: false #SQL ??? ??
+    open-in-view: false
+  sql:
+    init:
+      mode: ALWAYS
+
+
