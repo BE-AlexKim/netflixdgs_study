@@ -28,7 +28,7 @@ type Movie {
 type Director {
     id: ID!
     name: String!
-    movie: [Movie!]
+    movies: [Movie!]
 }
 
 type Review {

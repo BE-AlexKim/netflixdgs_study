@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository
  * -----------------------------------------------------------
  * 2025-03-17        joy58       최초 생성
  */
-
+@Repository
 interface ReviewRepository: JpaRepository<Review, Long> {
 }

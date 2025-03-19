@@ -26,10 +26,10 @@ spring:
     show-sql: false
     properties:
       hibernate:
-        show_sql: true #SQL ?? ??
-        format_sql: true #SQL ?? ??
-        use_sql_comments: false #SQL ??? ??
-    open-in-view: false
+        show_sql: true
+        format_sql: true
+        use_sql_comments:
+    open-in-view: true #OSIV ( Open Session I View 설정 ) Controller에서 Entity를 조회할 때, 트랜잭션이 View 렌더링까지 유지가 되는지 설정
   sql:
     init:
       mode: ALWAYS

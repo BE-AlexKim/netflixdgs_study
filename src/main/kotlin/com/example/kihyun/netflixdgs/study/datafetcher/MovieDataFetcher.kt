@@ -2,9 +2,10 @@ package com.example.kihyun.netflixdgs.study.datafetcher
 
 import com.example.kihyun.netflixdgs.study.entities.Movie
 import com.example.kihyun.netflixdgs.study.repositories.MovieRepository
+import com.example.kihyun.netflixdgs.study.service.MovieService
 import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsQuery
-import org.springframework.transaction.annotation.Transactional
+import com.netflix.graphql.dgs.InputArgument
 
 /**
  *packageName    : com.example.kihyun.netflixdgs.study.datafetcher
@@ -22,9 +23,15 @@ class MovieDataFetcher(
     private val movieRepository: MovieRepository
 ) {
 
-    @DgsQuery(field = "movies")
-    fun getMovies(): MutableList<Movie> {
+    @DgsQuery
+    fun movies(): MutableList<Movie> {
         return movieRepository.findAll()
     }
 
+    @DgsQuery
+    fun movie(
+        @InputArgument movieId: Long
+    ): Movie {
+        return movieRepository.findById(movieId).orElseThrow { Exception("Movie Not Found.") }
+    }
 }
